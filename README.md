@@ -13,7 +13,7 @@ Clone of [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) w
 
 ### Options Page
 
-!Options page example](http://i.imgur.com/WEvXFAg.png)
+![Options page example](http://i.imgur.com/WEvXFAg.png)
 
 
 
