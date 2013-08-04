@@ -4,7 +4,7 @@ Clone of [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) w
 
 ##Converts greek characters to latin characters (greeklish).
 
-### Input types
+### Features
 
 * Select to remove one letter words.
 * Select to remove two letter words.
@@ -13,7 +13,7 @@ Clone of [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) w
 
 ### Options Page
 
-![Options page example](http://i.imgur.com/WEvXFAg.png)
+![Options page example](http://i.imgur.com/YCCMkIp.png)
 
 
 

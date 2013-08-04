@@ -51,7 +51,7 @@ function register_setting_wpkmkz_greeklish_slugs() {
     add_settings_field(
         'wpkmkz_greeklish_slugs_stopw',
         __('<b>Λίστα απαγορευμένων λέξεων.</b><br/>
-           Εισάγετε λέξεις χωρισμένες με κόμμα που θέλετε να αφαιρούντε απο το slug.<br/>
+           Εισάγετε λέξεις χωρισμένες με κόμμα που θέλετε να αφαιρούνται απο το slug.<br/>
            πχ. σκύλος, γάτα, τρελός', 'wpkmkz'),
         'wpkmkz_greeklish_slugs_stopw_cb',
         'wpkmkz-greeklish-slugs',
