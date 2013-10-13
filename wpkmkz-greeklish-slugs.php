@@ -12,8 +12,6 @@
 
 // Based on https://github.com/dyrer/greeklish-permalinks
 
-// git comment
-
 if(is_admin()) {
     require_once('wpkmkz/options.php');
 }
