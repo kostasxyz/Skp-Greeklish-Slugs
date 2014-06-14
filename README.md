@@ -17,5 +17,5 @@ Clone of [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) w
 
 
 
-[www.wpkamikaze.com](http://www.wpkamikaze.com)
+[www.skapator.com](http://www.skapator.com)
 

@@ -3,15 +3,15 @@
 /**
  *
  */
-if ( !function_exists('wpkmkz_greeklish_slugs') ) {
+if ( !function_exists('skp_greeklish_slugs') ) {
 
-    add_filter('sanitize_title', 'wpkmkz_greeklish_slugs', 1);
+    add_filter('sanitize_title', 'skp_greeklish_slugs', 1);
 
-    function wpkmkz_greeklish_slugs($text) {
+    function skp_greeklish_slugs($text) {
 
         if ( !is_admin() ) return $text;
 
-        $options = get_option('wpkmkz_greeklish_slugs');
+        $options = get_option('skp_greeklish_slugs');
 
         $expressions = array(
             '/[αΑ][ιίΙΊ]/u' => 'e',

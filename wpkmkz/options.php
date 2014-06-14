@@ -3,22 +3,22 @@
 add_action('admin_menu', 'wpkmkz_greeklish_slugs_add_page');
 
 function wpkmkz_greeklish_slugs_add_page() {
-    add_plugins_page(
-        __('WPkmkz Greeklish Slugs', 'wpkmkz'),
-        __('Greeklish Slugs', 'wpkmkz'),
+    add_options_page(
+        __('Skp Greeklish Slugs', 'skp_greeklish_slugs'),
+        __('Greeklish Slugs', 'skp_greeklish_slugs'),
         'manage_options',
-        'wpkmkz-greeklish-slugs',
-        'wpkmkz_greeklish_slugs_cb'
+        'skp-greeklish-slugs',
+        'skp_greeklish_slugs_cb'
     );
 }
 
-function wpkmkz_greeklish_slugs_cb() {
+function skp_greeklish_slugs_cb() {
     ?>
     <div>
         <form action="options.php" method="post">
-            <?php settings_fields('wpkmkz_greeklish_slugs'); ?>
-            <?php do_settings_sections('wpkmkz-greeklish-slugs'); ?>
-            <input name="Submit" type="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
+            <?php settings_fields('skp_greeklish_slugs'); ?>
+            <?php do_settings_sections('skp-greeklish-slugs'); ?>
+            <input name="Submit" type="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes', 'skp_greeklish_slugs'); ?>" />
         </form>
     </div>
     <?php
@@ -27,88 +27,86 @@ function wpkmkz_greeklish_slugs_cb() {
 /**
  * Register Settings
  */
-add_action('admin_init', 'register_setting_wpkmkz_greeklish_slugs');
-function register_setting_wpkmkz_greeklish_slugs() {
-    register_setting( 'wpkmkz_greeklish_slugs', 'wpkmkz_greeklish_slugs', 'wpkmkz_greeklish_slugs_options_validate' );
+add_action('admin_init', 'register_settings_skp_greeklish_slugs');
+function register_settings_skp_greeklish_slugs() {
+    register_setting( 'skp_greeklish_slugs', 'skp_greeklish_slugs', 'skp_greeklish_slugs_options_validate' );
     add_settings_section(
-         'wpkmkz_greeklish_slugs_main_section',
-         __('WPkmkz Greeklish Slugs Options', 'wpkmkz'),
-         'wpkmkz_greeklish_slugs_main_section_cb',
-         'wpkmkz-greeklish-slugs'
+         'skp_greeklish_slugs_main_section',
+         __('Skp Greeklish Slugs Options', 'skp_greeklish_slugs'),
+         'skp_greeklish_slugs_main_section_cb',
+         'skp-greeklish-slugs'
     );
     add_settings_field(
-        'wpkmkz_greeklish_slugs_char',
-        __('<b>Αφαίρεση λέξεων με έναν χαρακτήρα.</b><br/> (πχ. ο, ή)', 'wpkmkz'), 'wpkmkz_greeklish_slugs_char_cb',
-        'wpkmkz-greeklish-slugs',
-        'wpkmkz_greeklish_slugs_main_section'
+        'skp_greeklish_slugs_char',
+        __('<b>Αφαίρεση λέξεων με έναν χαρακτήρα.</b><br/> (πχ. ο, ή)', 'skp_greeklish_slugs'), 'skp_greeklish_slugs_char_cb',
+        'skp-greeklish-slugs',
+        'skp_greeklish_slugs_main_section'
     );
     add_settings_field(
-        'wpkmkz_greeklish_slugs_chars',
-        __('<b>Αφαίρεση λέξεων με δύο χαρακτήρες.</b><br/> (πχ. το, τι)', 'wpkmkz'), 'wpkmkz_greeklish_slugs_chars_cb',
-        'wpkmkz-greeklish-slugs',
-        'wpkmkz_greeklish_slugs_main_section'
+        'skp_greeklish_slugs_chars',
+        __('<b>Αφαίρεση λέξεων με δύο χαρακτήρες.</b><br/> (πχ. το, τι)', 'skp_greeklish_slugs'), 'skp_greeklish_slugs_chars_cb',
+        'skp-greeklish-slugs',
+        'skp_greeklish_slugs_main_section'
     );
     add_settings_field(
-        'wpkmkz_greeklish_slugs_stopw',
+        'skp_greeklish_slugs_stopw',
         __('<b>Λίστα απαγορευμένων λέξεων.</b><br/>
            Εισάγετε λέξεις χωρισμένες με κόμμα που θέλετε να αφαιρούνται απο το slug.<br/>
-           πχ. σκύλος, γάτα, τρελός', 'wpkmkz'),
-        'wpkmkz_greeklish_slugs_stopw_cb',
-        'wpkmkz-greeklish-slugs',
-        'wpkmkz_greeklish_slugs_main_section'
+           πχ. σκύλος, γάτα, τρελός', 'skp_greeklish_slugs'),
+        'skp_greeklish_slugs_stopw_cb',
+        'skp-greeklish-slugs',
+        'skp_greeklish_slugs_main_section'
     );
 }
 
 /**
  * Settings section
  */
-function wpkmkz_greeklish_slugs_main_section_cb() {
-    echo '<b>Ρυθμίσεις:</b><hr>';
+function skp_greeklish_slugs_main_section_cb() {
+    echo '<b>' . __('Ρυθμίσεις:', 'skp_greeklish_slugs') . '</b><hr>';
 }
 
 /**
  * Settings section fields
  */
-function wpkmkz_greeklish_slugs_char_cb() {
-    $options = get_option('wpkmkz_greeklish_slugs');
+function skp_greeklish_slugs_char_cb() {
+    $options = get_option('skp_greeklish_slugs');
 
     $checked = $options['char'] == 1 ? ' checked="checked"' : '';
     ?>
     <input type="checkbox"
-        name="wpkmkz_greeklish_slugs[char]"
-        id="wpkmkz_greeklish_slugs_char"
+        name="skp_greeklish_slugs[char]"
+        id="skp_greeklish_slugs_char"
         value="1" <?php echo $checked; ?>/>
     <?php
 }
 
-function wpkmkz_greeklish_slugs_chars_cb() {
-    $options = get_option('wpkmkz_greeklish_slugs');
+function skp_greeklish_slugs_chars_cb() {
+    $options = get_option('skp_greeklish_slugs');
     $checked = $options['chars'] == 1 ? ' checked="checked"' : '';
     ?>
     <input type="checkbox"
-        name="wpkmkz_greeklish_slugs[chars]"
-        id="wpkmkz_greeklish_slugs_chars"
+        name="skp_greeklish_slugs[chars]"
+        id="skp_greeklish_slugs_chars"
         value="1" <?php echo $checked; ?>/>
     <?php
 }
 
-function wpkmkz_greeklish_slugs_stopw_cb() {
-    $options = get_option('wpkmkz_greeklish_slugs');
+function skp_greeklish_slugs_stopw_cb() {
+    $options = get_option('skp_greeklish_slugs');
     $stopw = $options['stopw'] != '' ? $options['stopw'] : '';
     ?>
-    <textarea name="wpkmkz_greeklish_slugs[stopw]" id="wpkmkz_greeklish_slugs_stopw" cols="60" rows="8">
-        <?php echo trim($stopw); ?>
-    </textarea>
+    <textarea name="skp_greeklish_slugs[stopw]" id="skp_greeklish_slugs_stopw" cols="60" rows="8"><?php echo trim( esc_attr($stopw) ); ?></textarea>
     <?php
 }
 
 /**
  * Validation
  */
-function wpkmkz_greeklish_slugs_options_validate($input) {
-    $options = get_option('wpkmkz_greeklish_slugs');
+function skp_greeklish_slugs_options_validate($input) {
+    $options = get_option('skp_greeklish_slugs');
     $options['char']  = sanitize_text_field( $input['char'] );
     $options['chars'] = sanitize_text_field( $input['chars'] );
-    $options['stopw'] = sanitize_text_field( $input['stopw'] );
+    $options['stopw'] = sanitize_text_field( trim($input['stopw']) );
     return $options;
 }
