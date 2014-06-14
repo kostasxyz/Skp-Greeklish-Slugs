@@ -1,7 +1,7 @@
 <?php
 
 /**
- *
+ * Parse characters and add filter for title
  */
 if ( !function_exists('skp_greeklish_slugs') ) {
 

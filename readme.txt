@@ -1,7 +1,7 @@
-=== Wpkmkz Tweet Blockquotes ===
+=== Skp Greeklish Slugs ===
 Contributors: skapator
 Donate link: http://wpkamikaze.com/
-Tags: bootstrap, widget, twitter, tweet, blockquote
+Tags: greeklish, slugs
 Requires at least: 3.0
 Tested up to: 4.0-alpha-20140613
 Stable tag: 1.0
@@ -13,7 +13,7 @@ Clone of [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) w
 
 == Description ==
 
-Convert greek characters to latin (greeklish)
+Convert Greek characters to Latin (greeklish)
 
 ### Features
 
@@ -34,8 +34,7 @@ Here's a link to my website [www.skapator.com](http://skapator.com/ "WordPress D
 .
 
 == Screenshots ==
-1. Greek characters converted to greeklish slugs
-2. The options page
+1. The options page
 
 == Changelog ==
 

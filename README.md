@@ -1,4 +1,4 @@
-WPkmkz-Greeklish-Slugs
+Skp Greeklish Slugs
 ======================
 Clone of [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) with some added personal mods.
 
