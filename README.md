@@ -17,6 +17,6 @@ Using [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) with
 
 ### Options Page
 
-![Options page example](http://i.imgur.com/YCCMkIp.png)
+![Options page example](http://imgur.com/XNREUIl)
 
 [noveldigital.pro](https://noveldigital.pro)
