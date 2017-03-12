@@ -1,29 +1,32 @@
-=== Skp Greeklish Slugs ===
+=== Greeklish Slugs ===
 Contributors: skapator
-Donate link: http://wpkamikaze.com/
-Tags: greeklish, slugs
+Tags: greeklish, slugs, translitaration, stop words, permalinks
 Requires at least: 3.0
-Tested up to: 4.0-alpha-20140613
-Stable tag: 1.0
+Tested up to: 4.7.4-alpha-40272
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Convert greek characters to latin (greeklish)
-Clone of [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) with some added personal mods.
+Translitaration of greek characters to latin for post permalinks with some extra options. (greeklish)
 
 == Description ==
 
 Convert Greek characters to Latin (greeklish)
+Using [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) with some extra functionality.
 
 ### Features
 
-* Converts post, pages, taxonomy and category slugs to greeklish
+* Converts post, pages, taxonomy and category slugs to greeklish automatically
 * Hooks in the sanitize_title() function
+* You can use ```skp_greeklish_slugs($your_text)``` in your template files (good for dynamic css classes etc.)
 * Select to strip out 1 letter words
 * Select to strip out 2 letter words
-* Define stop words that will be striped
+* Define stop words that will be striped out of the slugs
+* You can modify the translitaration array of regex via ```apply_filter('skp_greeklish_slugs_regex', 'your_callback')```
 
-Here's a link to my website [www.skapator.com](http://skapator.com/ "WordPress Development Extraordinaire").
+Fork on [github](https://github.com/skapator/Skp-Greeklish-Slugs "Link to github").
+
+[noveldigital.pro](https://noveldigital.pro "Link to github")
 
 == Installation ==
 
@@ -37,6 +40,16 @@ Here's a link to my website [www.skapator.com](http://skapator.com/ "WordPress D
 1. The options page
 
 == Changelog ==
+
+= 1.1.1 =
+*Code cleanup
+
+= 1.1.0 =
+*Added greek transaltions
+*Added regex array filter
+
+= 1.0.1 =
+* Added screenshots
 
 = 1.0 =
 * Release
