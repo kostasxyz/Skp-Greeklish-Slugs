@@ -15,6 +15,37 @@ Using [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) with
 * Define stop words that will be striped out of the slugs
 * You can modify the translitaration array of regex via ```apply_filter('skp_greeklish_slugs_regex', 'your_callback')```
 
+### Filter the regex array
+
+You can use ```apply_filter('skp_greeklish_slugs_regex', 'your_callback')``` and modify the regex array used to transliterate
+
+```
+function your_callback( $expressions ) {
+	// the $expressions parameter is the array with all expressions used
+
+  // view the expressions
+  var_damp( expressions )
+
+  // Change/remove items
+	$new_expressions = array(
+    ...
+    '/[μΜ][πΠ]/u' => 'mp',
+    '/[νΝ][τΤ]/u' => 'nt',
+    '/[τΤ][σΣ]/u' => 'ts'
+    ...
+	);
+
+	// Add them
+	$expressions = array_merge( $new_expressions, $expressions );
+
+  // Replace some
+  $expressions = array_unique( array_merge( $new_expressions, $expressions ) );
+
+	return $expressions;
+}
+add_filter( 'skp_greeklish_slugs_regex', 'your_callback' );
+```
+
 ### Options Page
 
 ![Options page example](http://i.imgur.com/XNREUIl.png)
