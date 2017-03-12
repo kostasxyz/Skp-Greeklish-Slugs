@@ -22,13 +22,14 @@ Using [greeklish-permalinks](https://github.com/dyrer/greeklish-permalinks) with
 * Select to strip out 1 letter words
 * Select to strip out 2 letter words
 * Define stop words that will be striped out of the slugs
-* You can modify the translitaration array of regex via ```apply_filter('skp_greeklish_slugs_regex', 'your_callback')```
+* You can modify the translitaration array of regex via `apply_filter('skp_greeklish_slugs_regex', 'your_callback')`
 
 ### Filter the regex array
 
-You can use ```apply_filter('skp_greeklish_slugs_regex', 'your_callback')``` and modify the regex array used to transliterate
+You can use `apply_filter('skp_greeklish_slugs_regex', 'your_callback')` and modify the regex array used to transliterate
 
-```
+`
+<?php
 function your_callback( $expressions ) {
 	// the $expressions parameter is the array with all expressions used
 
@@ -53,7 +54,8 @@ function your_callback( $expressions ) {
 	return $expressions;
 }
 add_filter( 'skp_greeklish_slugs_regex', 'your_callback' );
-```
+?>
+`
 
 Fork on [github](https://github.com/skapator/Skp-Greeklish-Slugs "Link to github").
 
@@ -71,6 +73,9 @@ Fork on [github](https://github.com/skapator/Skp-Greeklish-Slugs "Link to github
 1. The options page
 
 == Changelog ==
+
+= 1.1.2 =
+*Added uninstall file
 
 = 1.1.1 =
 *Code cleanup

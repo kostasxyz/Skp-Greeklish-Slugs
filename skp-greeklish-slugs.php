@@ -24,3 +24,6 @@ if ( is_admin() )
     require plugin_dir_path( __FILE__ ) . 'includes/skp-greeklish-slugs-options.php';
 
 require plugin_dir_path( __FILE__ ) . 'includes/skp-greeklish-slugs.php';
+
+// The code that runs during plugin uninstall.
+register_uninstall_hook( __FILE__, 'skp_greeklish_slugs_delete_options' );

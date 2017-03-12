@@ -68,6 +68,13 @@ function register_settings_skp_greeklish_slugs() {
         'skp-greeklish-slugs',
         'skp_greeklish_slugs_main_section'
     );
+    add_settings_field(
+        'skp_greeklish_slugs_delete_options',
+        __( 'Delete options on plugin uninstall?', 'skp_greeklish_slugs' ),
+        'skp_greeklish_slugs_delete_options_cb',
+        'skp-greeklish-slugs',
+        'skp_greeklish_slugs_main_section'
+    );
 }
 
 /**
@@ -125,13 +132,31 @@ function skp_greeklish_slugs_stopw_cb() {
 }
 
 /**
+ * Delete options on uninstall
+ *
+ */
+function skp_greeklish_slugs_delete_options_cb() {
+    $options = get_option( 'skp_greeklish_slugs' );
+    $checked = esc_attr( $options['delete_option_data'] );
+    ?>
+    <input type="checkbox"
+        name="skp_greeklish_slugs[delete_option_data]"
+        id="skp_greeklish_slugs_delete_option_data"
+        value="1"
+        <?php checked( $checked, 1 ); ?>
+    />
+    <?php
+}
+
+/**
  * Validation
  */
 function skp_greeklish_slugs_options_validate($input) {
     $options = get_option( 'skp_greeklish_slugs' );
-    $options['char']  = sanitize_text_field( $input['char'] );
-    $options['chars'] = sanitize_text_field( $input['chars'] );
-    $options['stopw'] = sanitize_text_field( $input['stopw'] );
+    $options['char']               = filter_var( $input['char'], FILTER_SANITIZE_NUMBER_INT );
+    $options['chars']              = filter_var( $input['chars'], FILTER_SANITIZE_NUMBER_INT );
+    $options['stopw']              = sanitize_text_field( $input['stopw'] );
+    $options['delete_option_data'] = filter_var( $input['delete_option_data'], FILTER_SANITIZE_NUMBER_INT );
 
     return $options;
 }
